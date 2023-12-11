@@ -1,0 +1,72 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Certificate Generator</title>
+</head>
+<body>
+    <h1>Certificate Generator</h1>
+    <form id="certificateForm">
+        <label for="commonName">Common Name (CN):</label>
+        <input type="text" id="commonName" name="commonName" required>
+        <br>
+        <label for="organization">Organization (O):</label>
+        <input type="text" id="organization" name="organization" required>
+        <br>
+        <label for="unit">Organizational Unit (OU):</label>
+        <input type="text" id="unit" name="unit" required>
+        <br>
+        <label for="locality">Locality (L):</label>
+        <input type="text" id="locality" name="locality" required>
+        <br>
+        <label for="state">State (ST):</label>
+        <input type="text" id="state" name="state" required>
+        <br>
+        <label for="country">Country (C):</label>
+        <input type="text" id="country" name="country" required>
+        <br>
+        <div class="button-container">
+        <button type="submit">Generate Certificate</button>
+        <pre id="certificateOutput"></pre>
+        <p><a href="/certificate-list-page" target="_blank">View All Certificates</a></p>
+        </div>
+    </form>
+
+
+    <script>
+        document.getElementById('certificateForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const certificateDetails = {
+                commonName: formData.get('commonName'),
+                organization: formData.get('organization'),
+                unit: formData.get('unit'),
+                locality: formData.get('locality'),
+                state: formData.get('state'),
+                country: formData.get('country'),
+            };
+
+            // Send the JSON object to the server
+            fetch('/generate-certificate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(certificateDetails),
+            })
+            .then(response => response.text())
+            .then(certificate => {
+                document.getElementById('certificateOutput').textContent = certificate;
+            })
+            .catch(error => {
+                console.error('Error generating certificate:', error);
+                document.getElementById('certificateOutput').textContent = 'Error generating certificate.';
+            });
+        });
+    </script>
+</body>
+</html>

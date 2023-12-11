@@ -1,0 +1,131 @@
+<!-- public/certificate-list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate List</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #certificateTable {
+            width: 100%;
+            border-collapse: collapse; /* Remove default table cell spacing */
+            margin-top: 20px;
+        }
+
+        #certificateTable th,
+        #certificateTable td {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: table-cell;
+        }
+
+        #certificateTable th {
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #certificateList {
+            list-style: none;
+            padding: 0;
+            display: table-header-group; /* Set the display property to table-header-group for the header */
+        }
+
+        li {
+            display: table-row; /* Set the display property to table-row for each list item */
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        
+        /* Modal and overlay styles */
+        /* Modal and overlay styles */
+        .overlay,
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .modal {
+            width: 400px; /* Set a fixed width for the modal */
+            position: fixed;
+            height: fit-content;
+            top: 50%;
+            left: 50%;
+            bottom:50%;
+            transform: translate(-50%, -50%); /* Center the modal both vertically and horizontally */
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        .modal pre {
+            white-space: pre-wrap; /* This property ensures that whitespace is preserved and line breaks are inserted */
+            word-wrap: break-word; /* This property ensures that long words are broken and wrap onto the next line */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Certificate List</h1>
+
+    <!-- <ul id="certificateList"></ul> -->
+    <table id="certificateTable">
+        <thead>
+            <tr>
+                <th>Common Name</th>
+                <th>Organization</th>
+                <th>Unit</th>
+                <th>Locality</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="certificateList"></tbody>
+    </table>
+
+    <!-- Modal Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="certificateModal"></div>
+
+    <script src="/main.js">
+
+    </script>
+</body>
+</html>
