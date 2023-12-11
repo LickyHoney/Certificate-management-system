@@ -5,7 +5,7 @@ body {
     background-color: #f4f4f4;
 }
 
-h1 {
+#list {
     background-color: #333;
     color: #fff;
     padding: 20px;
@@ -16,7 +16,7 @@ form {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ac9f9f;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -79,6 +79,14 @@ a {
 
 .button-container button:hover {
     background-color: #2980b9;
+}
+
+h1 {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
 }
 
 /* Styles for the form inside the modal */

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
         body {
@@ -19,6 +20,7 @@
             color: #fff;
             padding: 20px;
             margin: 0;
+            text-align: center;
         }
 
         #certificateTable {
@@ -102,19 +104,23 @@
     </style>
 </head>
 <body>
-    <h1>Certificate List</h1>
-
+    
+    
+    <h1 id="list">Certificate List</h1>
+    
+    <button class="btn" onclick="goToHomePage()"><i class="fa fa-home"></i></button>
     <!-- <ul id="certificateList"></ul> -->
     <table id="certificateTable">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Common Name</th>
                 <th>Organization</th>
                 <th>Unit</th>
                 <th>Locality</th>
                 <th>State</th>
                 <th>Country</th>
-                <th>Action</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody id="certificateList"></tbody>
@@ -126,6 +132,12 @@
 
     <script src="/main.js">
 
+    </script>
+    <script>
+        // JavaScript function to navigate to the homepage
+        function goToHomePage() {
+            window.location.href = "/"; // Update the URL based on your homepage URL
+        }
     </script>
 </body>
 </html>

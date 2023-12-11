@@ -28,6 +28,7 @@
         <label for="country">Country (C):</label>
         <input type="text" id="country" name="country" required>
         <br>
+        
         <div class="button-container">
         <button type="submit">Generate Certificate</button>
         <pre id="certificateOutput"></pre>
@@ -37,6 +38,7 @@
 
 
     <script>
+        
         document.getElementById('certificateForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
@@ -60,13 +62,19 @@
             })
             .then(response => response.text())
             .then(certificate => {
-                document.getElementById('certificateOutput').textContent = certificate;
+                const certificateOutput = document.getElementById('certificateOutput');
+                //certificateOutput.textContent = certificate;
+                alert(`Certificate has been generated successfully.`);
+                location.reload();
             })
             .catch(error => {
                 console.error('Error generating certificate:', error);
                 document.getElementById('certificateOutput').textContent = 'Error generating certificate.';
+                alert(`Error generating certificate. Please try again.`);
             });
         });
+       
+       
     </script>
 </body>
 </html>

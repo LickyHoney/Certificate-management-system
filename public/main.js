@@ -48,20 +48,23 @@ fetch('/all-certificates')
             // Add a button cell for the View Certificate button
             const viewButtonCell = row.insertCell();
             const viewButton = document.createElement('button');
-            viewButton.textContent = 'View Certificate';
+            viewButton.innerHTML = '<i class="fa fa-certificate"></i> View Certificate';
+            //viewButton.textContent = 'View Certificate';
     
             // Attach a click event listener to the View Certificate button
             viewButton.addEventListener('click', () => openModal(certificate));
             viewButtonCell.appendChild(viewButton);
 
             // Add a button cell for the "Delete" button
-            const deleteButtonCell = row.insertCell();
+            //const deleteButtonCell = row.insertCell();
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
+            deleteButton.classList.add('btn');
+            deleteButton.style.marginLeft = '10px';
+            deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
             
             // Attach a click event listener to the "Delete" button
             deleteButton.addEventListener('click', () => deleteCertificate(certificate.id));
-            deleteButtonCell.appendChild(deleteButton);    
+            viewButtonCell.appendChild(deleteButton);    
         });
         
     })
@@ -80,6 +83,7 @@ function deleteCertificate(certificateId) {
     .then(response => response.json())
     .then(data => {
         console.log(data.message);
+        alert("Certificate has been deleted successfully")
         // Optionally, you can remove the deleted certificate from the UI
         location.reload();
     })
