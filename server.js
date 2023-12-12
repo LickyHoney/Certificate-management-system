@@ -7,7 +7,6 @@ import { dirname } from 'path';
 import { v4 as uuidv4 } from 'uuid';
 import sqlite3 from "sqlite3";
 import swaggerUi from "swagger-ui-express";
-//import swaggerJsDoc from "swagger-jsdoc";
 import swaggerDocument from "./swagger.json" assert { type: "json" };
 import databaseConfig from './databaseConfig.js';
 

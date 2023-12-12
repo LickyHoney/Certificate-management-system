@@ -6,20 +6,17 @@ function openModal(certificate) {
     // Set the content of the modal
     modal.innerHTML = `
         <pre>${certificate.certificate}</pre>
-        <button id="closeButton">Close</button>
+        <button onClick="closeModal()" id="closeButton">Close</button>
     `;
 
     // Show the modal andx overlay
     modal.style.display = 'block';
     overlay.style.display = 'block';
-
-    // Attach a click event listener to the close button
-    const closeButton = document.getElementById('closeButton');
-    closeButton.addEventListener('click', () => closeModal());
 }
 
 // Function to close the modal
 function closeModal() {
+    
     const modal = document.getElementById('certificateModal');
     const overlay = document.getElementById('overlay');
 
