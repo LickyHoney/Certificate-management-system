@@ -2,7 +2,7 @@
 A basic Certificate Management System that allows users to create and manage digital certificates through a simple front-end interface.
 
 ## Introduction
-The aim of this assignment is to generate a basic openSSL certificates and implement the features like get all certificates, List all the certicates and delete the certificate by id.
+The assignment aims to generate basic OpenSSL certificates and implement features like get all certificates, List all the certificates and delete the certificate by ID.
 
 # Project Structure
 The following is the project structure.
@@ -14,7 +14,7 @@ The following is the project structure.
 ### Front End
 - Javascript
 - NodeJS
-- Express framework
+- Express Framework
 
 ### Back End
 - SQLite
@@ -37,10 +37,10 @@ Exports a configuration object for SQLlite by specifying the database name.
 JSON file for Swagger specifications for implementing API documentation for Simplified Certificate Management System.
 
 ### public/index.html
-This is a form which allows user to generate certificate by entering user details through the Fronntend interface. Also, it allows users to view all certificates.
+Form that allows user to generate a certificate by entering user details through the Fronntend interface. Also, it allows users to view all certificates.
 
 ### public/certificates_list.html
-Displays all user details in a tabular format. User can see the certificates in a popup and can delete the certificates by a button click.
+Displays all user details in a tabular format. Users can see the certificates in a popup and can delete the certificates by a button click.
 
 ### public/main.js
 Javascript file for certificates_list.html to implement the modal logic for view certificate button.
