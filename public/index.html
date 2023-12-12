@@ -10,7 +10,7 @@
 <body>
     <h1>Simplified Certificate Management System</h1>
     <form id="certificateForm">
-        <label for="commonName">Common Name (CN):</label>
+        <!-- <label for="commonName">Common Name (CN):</label>
         <input type="text" id="commonName" name="commonName" required>
         <br>
         <label for="organization">Organization (O):</label>
@@ -27,8 +27,27 @@
         <br>
         <label for="country">Country (C):</label>
         <input type="text" id="country" name="country" required>
-        <br>
+        <br> -->
         
+        <label for="commonName">Common Name (CN):</label>
+        <input type="text" id="commonName" name="commonName" required pattern="[äö0-9a-zA-Z\s]+" title="Only letters and spaces are allowed">
+        <br>
+        <label for="organization">Organization (O):</label>
+        <input type="text" id="organization" name="organization" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
+        <br>
+        <label for="unit">Organizational Unit (OU):</label>
+        <input type="text" id="unit" name="unit" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
+        <br>
+        <label for="locality">Locality (L):</label>
+        <input type="text" id="locality" name="locality" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
+        <br>
+        <label for="state">State (ST):</label>
+        <input type="text" id="state" name="state" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
+        <br>
+        <label for="country">Country (C):</label>
+        <input type="text" id="country" name="country" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
+        <br>
+
         <div class="button-container">
         <button type="submit">Generate Certificate</button>
         <pre id="certificateOutput"></pre>
@@ -52,6 +71,11 @@
                 country: formData.get('country'),
             };
 
+            // Validate the form data
+            if (!validateFormData(certificateDetails)) {
+                return;
+            }
+
             // Send the JSON object to the server
             fetch('/certificates', {
                 method: 'POST',
@@ -73,6 +97,22 @@
                 alert(`Error generating certificate. Please try again.`);
             });
         });
+
+        function validateFormData(formData) {
+            // Add your validation logic here
+            // You can check the type, size, or any other criteria for each input field
+
+            // Example: Check if commonName contains only letters and spaces
+            const commonNamePattern = /^[a-zA-Z\s]+$/;
+            if (!commonNamePattern.test(formData.commonName)) {
+                alert('Invalid input for Common Name (CN). Only letters and spaces are allowed.');
+                return false;
+            }
+
+            // Add similar validation for other fields
+
+            return true;
+        }
        
        
     </script>
