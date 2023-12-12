@@ -1,4 +1,3 @@
-// public/main.js
 // Function to open the modal and display the certificate
 function openModal(certificate) {
     const modal = document.getElementById('certificateModal');
@@ -10,7 +9,7 @@ function openModal(certificate) {
         <button id="closeButton">Close</button>
     `;
 
-    // Show the modal and overlay
+    // Show the modal andx overlay
     modal.style.display = 'block';
     overlay.style.display = 'block';
 
@@ -30,7 +29,7 @@ function closeModal() {
 }
 
 // Fetch the list of certificates from the server
-fetch('/all-certificates')
+fetch('/certificates')
     .then(response => response.json())
     .then(certificates => {
         const certificateList = document.getElementById('certificateList');
@@ -49,14 +48,13 @@ fetch('/all-certificates')
             const viewButtonCell = row.insertCell();
             const viewButton = document.createElement('button');
             viewButton.innerHTML = '<i class="fa fa-certificate"></i> View Certificate';
-            //viewButton.textContent = 'View Certificate';
-    
+            
             // Attach a click event listener to the View Certificate button
             viewButton.addEventListener('click', () => openModal(certificate));
             viewButtonCell.appendChild(viewButton);
 
             // Add a button cell for the "Delete" button
-            //const deleteButtonCell = row.insertCell();
+            const deleteButtonCell = row.insertCell();
             const deleteButton = document.createElement('button');
             deleteButton.classList.add('btn');
             deleteButton.style.marginLeft = '10px';
@@ -64,7 +62,9 @@ fetch('/all-certificates')
             
             // Attach a click event listener to the "Delete" button
             deleteButton.addEventListener('click', () => deleteCertificate(certificate.id));
-            viewButtonCell.appendChild(deleteButton);    
+            deleteButtonCell.appendChild(deleteButton);    
+            
+            
         });
         
     })
@@ -77,7 +77,7 @@ fetch('/all-certificates')
 function deleteCertificate(certificateId) {
     debugger;
     // Send a DELETE request to the server to delete the certificate
-    fetch(`/certificates/delete/${certificateId}`, {
+    fetch(`/certificates/${certificateId}`, {
         method: 'DELETE',
     })
     .then(response => response.json())

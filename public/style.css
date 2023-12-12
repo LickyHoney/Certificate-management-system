@@ -4,12 +4,34 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
+#certificateForm {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
 
 #list {
     background-color: #333;
     color: #fff;
     padding: 20px;
     margin: 0;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 form {
@@ -19,11 +41,6 @@ form {
     background-color: #ac9f9f;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
 }
 
 input {
@@ -46,11 +63,6 @@ button:hover {
     background-color: #2980b9;
 }
 
-#certificateOutput {
-    margin-top: 20px;
-    white-space: pre-wrap;
-}
-
 p {
     margin-top: 20px;
 }
@@ -59,16 +71,20 @@ a {
     color: #3498db;
 }
 
-/* Style for the buttons container */
-.button-container {
-    display: flex; /* Use flexbox for horizontal layout */
-    justify-content: space-between; /* Space items evenly */
-    margin-top: 20px; /* Adjust the margin as needed */
+a:hover {
+    text-decoration: underline;
 }
 
-/* Style for each button */
+/* Style for the buttons container
+.button-container {
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 20px;
+}
+
+
 .button-container button {
-    /* You can customize button styles here */
+    
     padding: 10px;
     background-color: #3498db;
     color: #fff;
@@ -79,7 +95,38 @@ a {
 
 .button-container button:hover {
     background-color: #2980b9;
+} */
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; 
+    align-items: center;
 }
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+#certificateOutput {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
 
 h1 {
     background-color: #333;
@@ -87,35 +134,6 @@ h1 {
     padding: 20px;
     margin: 0;
     text-align: center;
-}
-
-/* Styles for the form inside the modal */
-#editForm {
-    margin-bottom: 20px;
-}
-
-#editForm label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#editForm input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-#editForm button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#editForm button:hover {
-    background-color: #45a049;
 }
 
 #overlay {

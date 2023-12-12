@@ -1,0 +1,101 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Certificate API",
+        "version": "1.0.0",
+        "description": "API documentation for your Certificate Management System CRUD operations"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000"
+        }
+    ],
+    "paths": {
+        "/certificates": {
+            "get": {
+                "summary": "Get all Certificates",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new Certificate",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "commonName": {
+                                        "type": "string"
+                                    },
+                                    "organization": {
+                                        "type": "string"
+                                    },
+                                    "unit": {
+                                        "type": "string"
+                                    },
+                                    "locality": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Certificate created successfully"
+                    }
+                }
+            }
+        },
+        "/Certificates/{CertificateId}": {
+            "get": {
+                "summary": "Get an Certificate by ID",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "CertificateId",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete an Certificate by ID",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "CertificateId",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Certificate deleted successfully"
+                    }
+                }
+            }
+        }
+    }
+}

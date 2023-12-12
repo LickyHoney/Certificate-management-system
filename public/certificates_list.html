@@ -15,21 +15,24 @@
             background-color: #f4f4f4;
         }
 
-        h1 {
+        /* h1 {
             background-color: #333;
             color: #fff;
             padding: 20px;
             margin: 0;
             text-align: center;
+        } */
+        h2 {
+            margin-bottom: 50px;
         }
 
-        #certificateTable {
+         /* #certificateTable {
             width: 100%;
             border-collapse: collapse; /* Remove default table cell spacing */
-            margin-top: 20px;
-        }
+            /* margin-top: 20px;
+        } */ */
 
-        #certificateTable th,
+        /* #certificateTable th,
         #certificateTable td {
             background-color: #fff;
             padding: 15px;
@@ -48,7 +51,7 @@
             list-style: none;
             padding: 0;
             display: table-header-group; /* Set the display property to table-header-group for the header */
-        }
+        /* }  */ */
 
         li {
             display: table-row; /* Set the display property to table-row for each list item */
@@ -67,6 +70,33 @@
             background-color: #2980b9;
         }
 
+        .container {
+  text-align: center;
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.container table {
+  width: 100%;
+}
+
+.container td, .container th {
+  padding: 10px;
+}
+
+.container td:first-child, .container th:first-child {
+  padding-left: 20px;
+}
+
+.container td:last-child, .container th:last-child {
+  padding-right: 20px;
+}
+
+.container th {
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
         
         /* Modal and overlay styles */
         /* Modal and overlay styles */
@@ -100,17 +130,38 @@
             white-space: pre-wrap; /* This property ensures that whitespace is preserved and line breaks are inserted */
             word-wrap: break-word; /* This property ensures that long words are broken and wrap onto the next line */
         }
+        #closeButtonContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px; /* Adjust as needed for spacing */
+}
+
+#closeButton {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeButton:hover {
+    background-color: #2980b9;
+}
 
     </style>
 </head>
 <body>
-    
+    <section class = "container">
     
     <h1 id="list">Certificate List</h1>
-    
-    <button class="btn" onclick="goToHomePage()"><i class="fa fa-home"></i></button>
+    <div id="closeButtonContainer">
+    <button class="btn" id="closeButton" onclick="closePage()"><i class="fa fa-close"></i></button>
+</div>
     <!-- <ul id="certificateList"></ul> -->
-    <table id="certificateTable">
+    <!-- <table id="certificateTable"> -->
+        <table id="certificateTable">
         <thead>
             <tr>
                 <th>ID</th>
@@ -135,9 +186,10 @@
     </script>
     <script>
         // JavaScript function to navigate to the homepage
-        function goToHomePage() {
+        function closePage() {
             window.location.href = "/"; // Update the URL based on your homepage URL
         }
     </script>
+    </section>
 </body>
 </html>

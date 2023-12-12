@@ -6,6 +6,9 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { v4 as uuidv4 } from 'uuid';
 import sqlite3 from "sqlite3";
+import swaggerUi from "swagger-ui-express";
+//import swaggerJsDoc from "swagger-jsdoc";
+import swaggerDocument from "./swagger.json" assert { type: "json" };
 import databaseConfig from './databaseConfig.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,7 +18,7 @@ const PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Connect to SQLite database (create a new one if it doesn't exist)
 const db = new sqlite3.Database(databaseConfig.database, databaseConfig.options);
 
@@ -36,7 +39,7 @@ db.run(`
 `);
 
 // POST end point for creating the certificate.
-app.post('/generate-certificate', (req, res) => {
+app.post('/certificates', (req, res) => {
     const certificateDetails = req.body;
 
     // Validate that the request body is a JSON object
@@ -90,7 +93,7 @@ app.post('/generate-certificate', (req, res) => {
 });
 
 // GET end point to Get all certificates.
-app.get('/all-certificates', (req, res) => {
+app.get('/certificates', (req, res) => {
     // Retrieve all certificates from the 'certificates' table
     db.all('SELECT * FROM certificates', (err, certificates) => {
        if (err) {
@@ -106,7 +109,7 @@ app.get('/all-certificates', (req, res) => {
 app.get('/certificate-list-page', (req, res) => {
     const certificateListPagePath = `${__dirname}/public/certificates_list.html`;
     res.sendFile(certificateListPagePath);
- });
+});
 
 // GET end point to get certificate by id.
 app.get('/certificates/:id', (req, res) => {
@@ -128,7 +131,7 @@ app.get('/certificates/:id', (req, res) => {
 
 
 // DELETE endpoint to delete a certificate by ID
-app.delete('/certificates/delete/:id', (req, res) => {
+app.delete('/certificates/:id', (req, res) => {
     const certificateId = req.params.id;
 
     // Delete the certificate from the database

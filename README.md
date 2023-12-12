@@ -15,5 +15,5 @@ The aim of this assignment is to generate a basic openSSL certificates and imple
 npm install
 
 # To run the project
-node --experimental-modules server.js
+npm start
 

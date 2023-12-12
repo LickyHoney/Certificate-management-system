@@ -32,7 +32,7 @@
         <div class="button-container">
         <button type="submit">Generate Certificate</button>
         <pre id="certificateOutput"></pre>
-        <p><a href="/certificate-list-page" target="_blank">View All Certificates</a></p>
+        <p><a href="/certificate-list-page">View All Certificates</a></p>
         </div>
     </form>
 
@@ -53,7 +53,7 @@
             };
 
             // Send the JSON object to the server
-            fetch('/generate-certificate', {
+            fetch('/certificates', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
