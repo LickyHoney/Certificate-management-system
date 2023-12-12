@@ -30,7 +30,7 @@
         <br> -->
         
         <label for="commonName">Common Name (CN):</label>
-        <input type="text" id="commonName" name="commonName" required pattern="[äö0-9a-zA-Z\s]+" title="Only letters and spaces are allowed">
+        <input type="text" id="commonName" name="commonName" required pattern="[äö0-9a-zA-Z\s]+" title="Only letters, numbers and spaces are allowed">
         <br>
         <label for="organization">Organization (O):</label>
         <input type="text" id="organization" name="organization" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
@@ -44,7 +44,8 @@
         <label for="state">State (ST):</label>
         <input type="text" id="state" name="state" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
         <br>
-        <label for="country">Country (C):</label>
+        
+        <label for="country">Country Code (C):</label>
         <input type="text" id="country" name="country" required pattern="[äöa-zA-Z\s]+" title="Only letters and spaces are allowed">
         <br>
 
@@ -103,7 +104,7 @@
             // You can check the type, size, or any other criteria for each input field
 
             // Example: Check if commonName contains only letters and spaces
-            const commonNamePattern = /^[a-zA-Z\s]+$/;
+            const commonNamePattern = /^[a-zA-ZÄÖäö0-9\s]+$/;
             if (!commonNamePattern.test(formData.commonName)) {
                 alert('Invalid input for Common Name (CN). Only letters and spaces are allowed.');
                 return false;

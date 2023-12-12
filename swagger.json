@@ -16,7 +16,7 @@
                 "summary": "Get all Certificates",
                 "responses": {
                     "200": {
-                        "description": "Successful response"
+                        "description": "OK"
                     }
                 }
             },
@@ -53,7 +53,7 @@
                     }
                 },
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Certificate created successfully"
                     }
                 }
@@ -91,7 +91,7 @@
                     }
                 ],
                 "responses": {
-                    "204": {
+                    "200": {
                         "description": "Certificate deleted successfully"
                     }
                 }

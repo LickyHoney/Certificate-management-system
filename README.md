@@ -2,7 +2,7 @@
 A basic Certificate Management System that allows users to create and manage digital certificates through a simple front-end interface.
 
 ## Introduction
-The assignment aims to generate basic OpenSSL certificates and implement features like get all certificates, List all the certificates and delete the certificate by ID.
+Implemented Certificate Management System provides users with a straightforward interface for creating and managing digital certificates. Through this system, users can easily generate certificates by entering necessary details using the front-end interface. Additionally, the system allows users to view a comprehensive list of all certificates in a tabular format. The interface includes features for viewing certificate details in a modal popup and facilitates the deletion of certificates through a simple button click. The entire system is complemented by a cohesive and visually appealing design achieved through the implementation of CSS styles. Furthermore, the server-side is configured using Node.js and Express, incorporating SQLite for database functionality. API documentation is seamlessly integrated using Swagger specifications, allowing users to explore and test the API endpoints conveniently. The system promotes user-friendly interactions, making the process of certificate management efficient and accessible.
 
 # Project Structure
 The following is the project structure.
@@ -34,7 +34,7 @@ This server configuration file encompasses the server-side implementation using 
 Exports a configuration object for SQLlite by specifying the database "certificates.db".
 
 ### swagger.json
-The JSON file provided is an OpenAPI specification for Swagger, a tool that facilitates the documentation of APIs. It comprehensively outlines all the API endpoints associated with the Simplified Certificate Management System. To interact with the Swagger documentation, users can navigate to http://localhost:3000/api-docs after initiating the server.
+The JSON file provided is an OpenAPI specification for Swagger, a tool that facilitates the documentation of APIs. It comprehensively outlines all the API endpoints for create certificate, get all certificates, get certificate by ID, and delete certificate by ID associated with the Simplified Certificate Management System. To interact with the Swagger documentation, users can navigate to http://localhost:3000/api-docs after initiating the server.
 
 ### public/index.html
 The provided form serves as a Frontend interface, enabling users to generate certificates by entering specific details. The form collects user information, including common name (CN), organization (O), organizational unit (OU), locality (L), state (ST), and country (C). Upon submission, the data is sent to the server to generate a certificate. Additionally, the form includes a link to view all certificates, redirecting users to a dedicated page showcasing a list of available certificates. This functionality enhances the user experience by providing a seamless and intuitive way to interact with the Certificate Management System.

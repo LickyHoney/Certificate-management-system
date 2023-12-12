@@ -34,6 +34,7 @@ db.run(`
       state TEXT,
       country TEXT,
       certificate TEXT
+      
    )
 `);
 
@@ -65,7 +66,9 @@ app.post('/certificates', (req, res) => {
         locality,
         state,
         country,
-        certificate: execSync('cat certificate.pem').toString(),
+        certificate: execSync('cat certificate.pem').toString()
+        
+        
     };
 
    
@@ -81,6 +84,8 @@ app.post('/certificates', (req, res) => {
    newCertificate.state,
    newCertificate.country,
    newCertificate.certificate
+   
+   
 ], (err) => {
    if (err) {
       console.error('Error inserting certificate into the database:', err);
